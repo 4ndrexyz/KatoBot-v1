@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/4ndrexyz/KatoBot-v1">
-    <img src="images/logo.png" alt="Logo" width="200" height="200">
+    <img src="images/Kato/5.jpg" alt="Logo" width="200" height="200">
   </a>
   <h2 align="center">Kato Bot</h2>
 
