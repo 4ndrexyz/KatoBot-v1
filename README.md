@@ -51,7 +51,7 @@ apt install wget curl git ffmpeg imagemagick build-essential libcairo2-dev libpa
 
 ---------
 
-#### INSTALLING NODEJS & Andrexyz Bot
+#### INSTALLING NODEJS & Kato Bot
 
 ```bash
 ubuntu
