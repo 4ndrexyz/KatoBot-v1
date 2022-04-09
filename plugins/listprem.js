@@ -11,7 +11,7 @@ let handler = async (m, { conn }) => {
   conn.reply(
     m.chat,
     `*[ PREMIUM LIST ]*
-` + prem.map((v) => "- @" + v.replace(/@.+/, "")).join`\n`,
+` + prem.map((v) => "» @" + v.replace(/@.+/, "")).join`\n`,
     m,
     { contextInfo: { mentionedJid: prem } }
   );

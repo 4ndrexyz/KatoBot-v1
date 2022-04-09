@@ -1,11 +1,12 @@
 let handler = async (m, { conn, usedPrefix }) => {
   let id = m.chat;
+  var wm = global.owner
   conn.absen = conn.absen ? conn.absen : {};
   if (!(id in conn.absen))
     return conn.sendButton(
       m.chat,
       `*Tidak ada absen berlangsung !*`,
-      "© 4ndrexyz",
+      author,
       "Mulai",
       `${usedPrefix}+absen`,
       m
@@ -17,7 +18,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     year: "numeric",
   });
   let absen = conn.absen[id][1];
-  let list = absen.map((v, i) => `│ ${i + 1}. @${v.split`@`[0]}`).join("\n");
+  let list = absen.map((v, i) => `│ » ${i + 1}. @${v.split`@`[0]}`).join("\n");
   let caption = `
 Hari: *${week}*
 Tanggal: *${date}*
@@ -35,7 +36,7 @@ ${list}
   conn.send2Button(
     m.chat,
     caption,
-    "4ndrexyz",
+    author,
     "Absen",
     `${usedPrefix}absen`,
     "Hapus",

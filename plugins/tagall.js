@@ -1,9 +1,11 @@
 let PhoneNumber = require('awesome-phonenumber')
+let levelling = require('../lib/levelling')
 let handler = async (m, { conn, text, participants }) => {
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   let users = participants.map(u => u.jid)
+  let username = conn.getName(who)
   m.reply(
-    text + '*[ TAG ALL ]*\n' + who.map(who => '@' + who.replace(/@.+/, '')).join`\n`, null, {
+    text + '*[ TAG ALL ]*\n\n' + users.map(v => '⇒ @' + v.replace(/@.+/, '')).join`\n`, null, {
     contextInfo: { mentionedJid: users }
   })
 }

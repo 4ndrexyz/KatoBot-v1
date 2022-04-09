@@ -1,15 +1,15 @@
-let handler = async (m, {conn}) => {
+let handler = async (m, {conn, usedPrefix}) => {
 let profile = './images/Kato/5.jpg'
 let str = `
 *[ RULE BOT ]*
 
-- Bot berjalan di Web Deployment yang Free
-- Bot off jika gw ga punya internet
-- Bot ini memakai Free API Key
-- Jangan SPAM biar ga delay
-- SC bot ini adalah @narutomo
+- Bot off jika gw ga ada internet
+- Bot ini memakai Free API
+- Jangan *SPAM !* di grup/chat
+- Gunakan dengan baik
+
 `.trim()
-    conn.send2ButtonImg(m.chat, profile, str, "\n4ndrexyz" , "Menu", '.menu', "Owner", '.owner', m)
+    conn.send2ButtonImg(m.chat, profile, str, "\n4ndrexyz" , "Menu", `${usedPrefix}menu`, "Owner", `${usedPrefix}owner`, m)
 }
 
 module.exports = handler

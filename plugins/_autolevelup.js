@@ -8,14 +8,12 @@ module.exports = {
 
 		if (before !== user.level) {
 			m.reply(`
-*LEVEL UP !!* ⬆️
-
-✯ *${before}* ➠ *${user.level}* ✯
-
-Untuk mengecek level ketik
-*.profile*
+*LEVEL UP !!*
+	
+✯ Level: *${before}* ➠ *${user.level}* ✯
+				
+Untuk melihat profil ketik *${usedPrefix}profile*
 	`.trim())
 		}
 	}
 }
-

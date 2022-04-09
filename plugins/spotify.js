@@ -8,11 +8,11 @@ let handler = async(m, { conn, text }) => {
   if(!json.data[0]) throw json
   let { title, artists, album, thumb, url, preview_mp3 } = json.data[0]
 let spotifyinfo = `
-✨️ Title: *${title}*
-🗣️ Artists: *${artists}*
-🎆️ Album: *${album}*
-🌐️ URL: *${url}*
-💚️ Direct URL: *${preview_mp3}*`
+Title: *${title}*
+Artists: *${artists}*
+Album: *${album}*
+URL: *${url}*
+Direct URL: *${preview_mp3}*`
 
   await conn.sendFile(m.chat, thumb, '', spotifyinfo, m)
   await conn.sendFile(m.chat, preview_mp3, 'spotify.mp3', spotifyinfo, m)

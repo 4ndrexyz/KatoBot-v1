@@ -12,7 +12,7 @@ Volume: *${volumes}*
 Score: *${score}*
 Sinopsis: *${synopsis}*
 Link: _${url}_`
-  conn.sendFile(m.chat, image_url, '', mangaingfo, m)
+  conn.sendFile(m.chat, image_url, '', mangaingfo, author, m)
 }
 handler.help = ['manga (judul)']
 handler.tags = ['internet']

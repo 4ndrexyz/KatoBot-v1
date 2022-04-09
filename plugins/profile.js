@@ -18,17 +18,17 @@ let handler = async (m, { conn, usedPrefix }) => {
 ✦ Nama Default: *@${who.replace(/@.+/, '')}*
 ✦ Nama: *${registered ? '' + name + '': ''}* 
 ✦ Umur: *${registered ? + age + ' Tahun' : '' }*
+✦ Premium: *${prem ? 'Iya ⭐️' : 'Tidak '}*
 ✦ XP: *${exp}* (${exp - min} / ${xp})
 ✦ Level: *${level}*
 ✦ Role: *${role}*
 ✦ Limit: *${limit}*
-✦ Premium: *${prem ? 'Iya' : 'Tidak'}*
 ✦ Registrasi: *${registered ? 'Terverifikasi ✅' : 'Belum ⛔️'}*
 ✦ Nomor WhatsApp: 
     *${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}*
 `.trim()
     let mentionedJid = [who]
-    conn.send2ButtonImg(m.chat, pp, str, '\n4ndrexyz', 'Menu', '.menu', 'Cek SN', '.ceksn', m, false, { contextInfo: { mentionedJid }})
+    conn.send2ButtonImg(m.chat, pp, str, author, "Menu", `${usedPrefix}menu`, "Cek SN", `${usedPrefix}ceksn`, m, false, { contextInfo: { mentionedJid }})
   }
 }
 

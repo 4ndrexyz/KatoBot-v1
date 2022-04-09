@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     return conn.sendButton(
       m.chat,
       `*Tidak ada absen berlangsung !*`,
-      "© 4ndrexyz",
+      author,
       "Mulai",
       `${usedPrefix}+absen`,
       m
@@ -20,7 +20,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     month: "long",
     year: "numeric",
   });
-  let list = absen.map((v, i) => `│ ${i + 1}.  @${v.split`@`[0]}`).join("\n");
+  let list = absen.map((v, i) => `│ » ${i + 1}.  @${v.split`@`[0]}`).join("\n");
   let caption = `
 Hari: *${week}*
 Tanggal: *${date}*
@@ -36,7 +36,7 @@ ${list}
   await conn.send2Button(
     m.chat,
     caption,
-    "© 4ndrexyz",
+    author,
     "Absen",
     `${usedPrefix}absen`,
     "Cek",

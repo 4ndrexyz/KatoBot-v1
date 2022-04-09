@@ -85,7 +85,7 @@ Keterangan:
 };
 
 
-let handler = async (m, { conn, usedPrefix: _p }) => {
+let handler = async (m, { conn, usedPrefix: _p, usedPrefix}) => {
   try {
     let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
     let { exp, limit, level, role } = global.db.data.users[m.sender]
@@ -178,13 +178,13 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       maxexp: xp,
       totalexp: exp,
       xp4levelup: max - exp,
-      github: package.homepage ? package.homepage.url || package.homepage : '[unknown github url]',
+      github: package.homepage ? package.homepage.url || package.homepage : '[github.com/4ndrexyz]',
       level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
   
-    await conn.send2ButtonImg(m.chat, logo, text.trim(), '\n4ndrexyz', 'Verify','.daftar', 'Rules' , '.rulesbot' , m)
+    await conn.send2ButtonImg(m.chat, logo, text.trim(), author, "Verify", `${usedPrefix}daftar`, "Rules", `${usedPrefix}rulesbot` , m)
  
 } catch (e) {
     conn.reply(m.chat,'Maaf, menu sedang error :(', m)
@@ -220,7 +220,20 @@ function clockString(ms) {
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
 
-// kalo run di mungkin heroku ga falid!
+
+// function ucapann(){
+//   var jam=(new Date()).getHours();
+//   var menit=(new Date()).getMinutes();
+//   var detik=(new Date()).getSeconds();
+
+//   if (jam >= 4 && jam < 10) document.writeln("Selamat pagi, ");
+//   if (jam >= 10 && jam < 15) document.writeln("Selamat siang, ");
+//   if (jam >= 15 && jam < 18) document.writeln("Selamat sore, ");
+//   if (jam >= 18 || jam < 4) document.writeln("Selamat malam, ");
+// }
+
+
+// kalo run di heroku ga falid!
 function ucapan() {
   const waktuu = moment().tz('Asia/Jakarta').format('HH');
   res = "Hallo "

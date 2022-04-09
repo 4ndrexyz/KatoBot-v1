@@ -1,6 +1,6 @@
 let handler = async (m) => {
   let mention = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
-  if (!mention) throw `Tag/mention orangnya!`
+  if (!mention) throw `Tag atau mention orangnya !`
   let warn = global.db.data.users[mention].warn
   if (warn > 0) {
     global.db.data.users[mention].warn -= 1

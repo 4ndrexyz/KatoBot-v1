@@ -29,7 +29,7 @@ Ketik *${usedPrefix}teki* untuk bantuan
         await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(() => {
-            if (conn.tebakkimia[id]) conn.sendButton(m.chat, `*Waktu habis !!*\n\nJawabannya adalah *${json.name}*`, author, 'Tebak Kimia', '.tebakkimia', conn.tebakkimia[id][0])
+            if (conn.tebakkimia[id]) conn.sendButton(m.chat, `*Waktu habis !!*\n\nJawabannya adalah *${json.name}*`, author, 'Tebak Kimia', `${usedPrefix}tebakkimia`, conn.tebakkimia[id][0])
             delete conn.tebakkimia[id]
         }, timeout)
     ]

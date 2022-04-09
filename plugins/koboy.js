@@ -38,8 +38,8 @@ let handler = (m, { conn, usedPrefix, command, text }) => {
 
     conn.deleteMessage(chat, { fromMe, id, remoteJid: chat })
 
-    if(conn.tembak.musuh.indexOf("🥷") === conn.tembak.tembak.indexOf("🤠")) return conn.sendButton(m.chat, pos, "©Muhammad Restu", "Tembak", `${usedPrefix}${command} tembak`)
-    return conn.send2Button(m.chat, pos, "©Muhammad Restu", "←", `${usedPrefix}${command} kiri`, "→", `${usedPrefix}${command} kanan`)
+    if(conn.tembak.musuh.indexOf("🥷") === conn.tembak.tembak.indexOf("🤠")) return conn.sendButton(m.chat, pos, author, "Tembak", `${usedPrefix}${command} tembak`)
+    return conn.send2Button(m.chat, pos, author, "←", `${usedPrefix}${command} kiri`, "→", `${usedPrefix}${command} kanan`)
   } else if(/kanan/i.test(text)) {
     let { chat, fromMe, id, isBaileys } = m.quoted
     let kanan = [

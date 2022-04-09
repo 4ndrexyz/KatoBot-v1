@@ -377,13 +377,13 @@
 
 let fetch = require('node-fetch')
 
-let handler = async (m, { conn }) => {
+let handler = async (m,{ conn,usedPrefix }) => {
 	let url = loli[Math.floor(Math.random() * loli.length)]
 	await conn.sendMessage(m.chat, {
 		contentText: 'Pukul Pedo',
 		footerText: '4ndrexyz',
 		buttons: [
-			{ buttonText: { displayText: 'Mau Lagi' }, buttonId: '.loli', type: 1 }
+			{ buttonText: { displayText: 'Mau Lagi' }, buttonId: `${usedPrefix}loli`, type: 1 }
 		],
 		headerType: 4,
 		imageMessage: (await conn.prepareMessageMedia(await (await fetch(url)).buffer(), 'imageMessage', {})).imageMessage

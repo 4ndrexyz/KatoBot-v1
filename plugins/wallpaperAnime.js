@@ -5,9 +5,9 @@ let handler = async (m, { conn }) => {
         let res = await fetch(global.API('xteam', '/randomimage/wpmobile', {}, 'APIKEY'))
         if (res.status != 200) throw await res.text()
         let img = await res.buffer()
-        conn.sendFile(m.chat, img, '', m, false, { thumbnail: Buffer.alloc(0) })
+        conn.sendFile(m.chat, img, '', 'Nih Wallpapernya', false, { thumbnail: Buffer.alloc(0) })
     } catch (e) {
-        throw `Limit apikey habis atau error!`
+        throw `Limit apikey kamu habis atau server sedang error !`
     }
 }
 handler.help = ['wallpaperanime']

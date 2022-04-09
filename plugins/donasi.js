@@ -1,7 +1,7 @@
-let handler = async (m, {conn}) => {
+let handler = async (m, {conn, usedPrefix}) => {
 let profile = './src/andrexyz.jpg'
 let str = `
-[ *DONASI* ]
+*[ DONASI ]*
 
 Yuk donasinya kakak,
 Bayar seikhlasnya aja :)
@@ -11,7 +11,7 @@ Bayar seikhlasnya aja :)
 ✦ Dana  : 089525618110
 
 `.trim()
-    conn.send2ButtonImg(m.chat, profile, str, "\n4ndrexyz" , "Menu", '.menu', "Owner", '.owner', m)
+    conn.send2ButtonImg(m.chat, profile, str, author , "Menu", `${usedPrefix}menu`, "Owner", `${usedPrefix}owner`, m)
 }
 
 handler.help = ['donasi']

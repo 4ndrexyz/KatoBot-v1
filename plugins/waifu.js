@@ -6,6 +6,7 @@ let handler = async(m, { conn, reply }) => {
   if (!json.url) throw 'Error !'
   conn.sendFile(m.chat, json.url, '', 'Istrinya Kakak..', m)
 }
+
 handler.help = ['waifu']
 handler.tags = ['anime']
 handler.command = /^(waifu)$/i

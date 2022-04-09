@@ -1,7 +1,7 @@
 let fs = require('fs')
 let fetch = require('node-fetch')
 let handler = async (m, { conn, usedPrefix }) => {
-  conn.reply(m.chat, `*${pickRandom(ilham)}*\n_~ Kata ilham_`, m)
+  conn.reply(m.chat, `*${pickRandom(ilham)}*\n~ Kata ilham`, m)
 }
 handler.help = ['ilham']
 handler.tags = ['quotes']

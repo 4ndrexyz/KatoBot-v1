@@ -6,9 +6,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!json.status) throw json
   conn.sendButtonImg(m.chat, await (await fetch(json.result)).buffer(), `Kyaa, , kawaii !   > / / / <`, `${wm}`, 'Next', `#loli`, m, 0, { thumbnail: await (await fetch(json.result)).buffer() })
 }
-handler.help = ['loli2']
-handler.tags = ['anime']
-handler.command = /^(loli2)$/i
+// handler.help = ['loli2']
+// handler.tags = ['anime']
+// handler.command = /^(loli2)$/i
 
 module.exports = handler
 let wm = global.botwm

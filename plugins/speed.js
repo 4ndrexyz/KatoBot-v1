@@ -44,16 +44,16 @@ let handler = async (m, { conn }) => {
   m.reply(`
 Merespon dalam ${speed} millidetik
 
-💬 Status :
+Status :
 - *${groups.length}* Group Chats
 - *${groupsIn.length}* Groups Joined
 - *${groups.length - groupsIn.length}* Groups Left
 - *${chats.length - groups.length}* Personal Chats
 - *${chats.length}* Total Chats
 
-📱 *Phone Info* :
+*Phone Info* :
 ${'```' + `
-🔋 Battery : ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Charging...' : '⚡ Discharging'}` : 'Unknown'}
+Battery : ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? 'Charging...' : 'Discharging'}` : 'Unknown'}
 ${util.format(conn.user.phone)}
 `.trim() + '```'}
 

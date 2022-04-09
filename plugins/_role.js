@@ -2,6 +2,7 @@ const roles = {
   /*
   'Role Name': <Minimal Level To Obtain this Role>
   */
+  'Copper V': 0,
   'Copper IV': 5,
   'Copper III': 10,
   'Copper II': 15,

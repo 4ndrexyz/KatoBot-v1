@@ -1,11 +1,13 @@
-const Brainly = require('brainly-scraper')
-const brainly = new Brainly('id')
+const brainly = require('brainly-scraper')
+const brain = new brainly()
+
 let handler = async function (m, { text }) {
   if (!text) throw 'Soalnya?'
-  let res = await brainly.search('id', text)
+  let res = await brain('id', text)
   let answer = res.map(({ question, answers }, i) => `
 *PERTANYAAN KE ${i + 1}*
 ${formatTags(question.content)}${answers.map((v, i) => `
+
 *JAWABAN KE ${i + 1}*${v.verification ? ' (Verified)' : ''}${v.isBest ? ' (Terpilih)' : ''}
 ${formatTags(v.content)}`).join``}`).join(`
 
@@ -47,5 +49,3 @@ function formatTags(str) {
     .replace(tagRegex, replacer)
     .trim()
 }
-
-

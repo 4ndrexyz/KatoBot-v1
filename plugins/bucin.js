@@ -2,7 +2,7 @@ let handler = async (m, { conn, usedPrefix }) => {
   await conn.sendButton(
     m.chat,
     `“${pickRandom(global.bucin)}”`,
-    "4ndrexyz",
+    author,
     "Bucin",
     `${usedPrefix}bucin`,
     m

@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix, isAdmin, isOwner }) => {
     return conn.sendButton(
       m.chat,
       `*Tidak ada absen berlangsung !*`,
-      "© 4ndrexyz",
+      author,
       "Mulai",
       `${usedPrefix}+absen`,
       m

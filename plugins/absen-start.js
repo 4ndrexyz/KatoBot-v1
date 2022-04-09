@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix, text, isAdmin, isOwner }) => {
     return conn.send2Button(
       m.chat,
       `*Masih ada absen di Grup ini !*`,
-      "© 4ndrexyz",
+      author,
       "Hapus",
       `${usedPrefix}hapusabsen`,
       "Cek",
@@ -19,7 +19,7 @@ let handler = async (m, { conn, usedPrefix, text, isAdmin, isOwner }) => {
     await conn.sendButton(
       m.chat,
       `*Absen dimulai !*`,
-      "© 4ndrexyz",
+      author,
       "Absen",
       `${usedPrefix}absen`,
       m

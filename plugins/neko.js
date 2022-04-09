@@ -6,7 +6,7 @@ let handler = async(m, { conn }) => {
   if (!res.ok) throw await res.text()
   let json = await res.json()
   if (!json.url) throw 'Maaf Error, coba lagi nanti'
-  conn.sendButton(m.chat, json.url, '', 'Nyaaa... >_<', 'Mau Lagi', '.neko', m)
+  conn.sendFile(m.chat, json.url, '', 'Nyaaa... >_<', m)
 }
 handler.help = ['neko']
 handler.tags = ['anime']

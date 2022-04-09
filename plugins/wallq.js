@@ -19,7 +19,7 @@ let handler = async (m, { conn, text }) => {
   let json = await res.json()
   if (!json.wallpapers) throw json
   let img = json.wallpapers[Math.floor(Math.random() * json.wallpapers.length)];
-  await conn.sendFile(m.chat, img.url_image, text + `.${img.file_type}`, img.url_page, m);
+  await conn.sendFile(m.chat, img.url_image, text + `Nih Wallpapernya`, 'Nih Wallpapernyaa', m);
 };
 handler.help = ["wallpaperq"];
 handler.tags = ["anime"];

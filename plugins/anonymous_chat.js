@@ -5,10 +5,10 @@ async function handler(m, { command }) {
         case 'next':
         case 'leave': {
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
-            if (!room) return this.sendButton(m.chat, '_Kamu tidak sedang berada di percakapan_', '© 4ndrexyz', 'Cari Partner', `.start`, m)
+            if (!room) return this.sendButton(m.chat, '_Kamu tidak sedang berada di percakapan_', author, 'Cari Partner', `.start`, m)
             m.reply('Ok')
             let other = room.other(m.sender)
-            if (other) await this.sendButton(other, '_Partner meninggalkan chat_', '© 4ndrexyz', 'Cari Partner', `.start`, m)
+            if (other) await this.sendButton(other, '_Partner meninggalkan chat_', author, 'Cari Partner', `.start`, m)
             delete this.anonymous[room.id]
             if (command === 'leave') break
         }
@@ -16,16 +16,16 @@ async function handler(m, { command }) {
             if (Object.values(this.anonymous).find(room => room.check(m.sender))) return this.sendButton(
               m.chat,
               "_Kamu masih berada di dalam Percakapan, menunggu partner_",
-              "© 4ndrexyz",
+              author,
               "Keluar",
               `.leave`
             );
             let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
             if (room) {
-                await this.sendButton(room.a, '_Partner ditemukan!_', '© 4ndrexyz', 'Next', `.next`, m)
+                await this.sendButton(room.a, '_Partner ditemukan!_', author, 'Next', `.next`, m)
                 room.b = m.sender
                 room.state = 'CHATTING'
-                await this.sendButton(room.a, '_Partner ditemukan!_', '© 4ndrexyz', 'Next', `.next`, m)
+                await this.sendButton(room.a, '_Partner ditemukan!_', author, 'Next', `.next`, m)
             } else {
                 let id = + new Date
                 this.anonymous[id] = {
@@ -40,7 +40,7 @@ async function handler(m, { command }) {
                         return who === this.a ? this.b : who === this.b ? this.a : ''
                     },
                 }
-                await this.sendButton(m.chat, '_Menunggu partner..._', '© 4ndrexyz', 'Keluar', `.leave`, m)
+                await this.sendButton(m.chat, '_Menunggu partner..._', author, 'Keluar', `.leave`, m)
             }
             break
         }

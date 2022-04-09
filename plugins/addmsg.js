@@ -7,7 +7,7 @@ let handler = async (m, { conn, command, usedPrefix, text }) => {
     if (!text) return conn.sendButton(
       m.chat,
       `Teksnya mana?\n\nContoh:\n${usedPrefix + command} tes`,
-      "4ndrexyz",
+      author,
       "Daftar Pesan",
       `${usedPrefix}list${which}`,
       m
@@ -16,7 +16,7 @@ let handler = async (m, { conn, command, usedPrefix, text }) => {
     if (text in msgs) return conn.sendButton(
       m.chat,
       `'${text}' telah terdaftar, gunakan nama lain !`,
-      "4ndrexyz",
+      author,
       "Daftar Pesan",
       `${usedPrefix}list${which}`,
       m
@@ -33,7 +33,7 @@ Berhasil menambahkan pesan dengan nama '${text}'
 Akses dengan ${usedPrefix}get${which} ${text}
 
 Jika Getmsg diaktifkan maka tidak perlu lagi mengetik *${usedPrefix}get${which}*`,
-      "4ndrexyz",
+      author,
       "Aktifkan",
       ".1 getmsg",
       m

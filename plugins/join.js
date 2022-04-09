@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
     let [_, code] = text.match(linkRegex) || []
     if (!code) throw 'Link invalid'
     let res = await conn.acceptInvite(code)
-    m.reply(`Berhasil join grup ${res.gid}`)
+    m.reply(`Berhasil join ke grup ${res.gid}`)
 }
 handler.help = ['join (link grup)']
 handler.tags = ['premium']
