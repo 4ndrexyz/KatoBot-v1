@@ -3,7 +3,7 @@ let profile = './src/andrexyz.jpg'
 let str = `
 *[ DONASI ]*
 
-Yuk donasinya kakak,
+Yuk donasi,
 Bayar seikhlasnya aja :)
 
 ✦ Pulsa : 089525618110

@@ -10,7 +10,7 @@ let handler = async (m, { conn }) => {
     .filter((v) => v != conn.user.jid);
   conn.reply(
     m.chat,
-    `*[ PREMIUM LIST ]*
+    `*[ PREMIUM LIST ]*\n
 ` + prem.map((v) => "» @" + v.replace(/@.+/, "")).join`\n`,
     m,
     { contextInfo: { mentionedJid: prem } }

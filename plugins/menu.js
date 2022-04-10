@@ -178,7 +178,7 @@ let handler = async (m, { conn, usedPrefix: _p, usedPrefix}) => {
       maxexp: xp,
       totalexp: exp,
       xp4levelup: max - exp,
-      github: package.homepage ? package.homepage.url || package.homepage : '[github.com/4ndrexyz]',
+      github: package.homepage ? package.homepage.url || package.homepage : 'github.com/4ndrexyz',
       level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
       readmore: readMore
     }
@@ -212,6 +212,8 @@ module.exports = handler
 
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
+
+
 
 function clockString(ms) {
   let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)

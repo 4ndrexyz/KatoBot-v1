@@ -3,7 +3,7 @@ let handler = async (m, { conn, usedPrefix, text }) => {
   let users = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user.jid)])]
   let cc = text ? m : m.quoted ? await m.getQuotedObj() : false || m
   let teks = text ? text : cc.text
-  let content = conn.cMod(m.chat, cc, /bc|broadcast/i.test(teks) ? teks : teks + '\n' + 'Owner Kato')
+  let content = conn.cMod(m.chat, cc, /bc|broadcast/i.test(teks) ? teks : teks + '\n\n' + '~ 4ndrexyz')
   for (let id of users) conn.copyNForward(id, content, true)
   conn.reply(m.chat, `Berhasil mengirim broadcast ke ${users.length} nomor yang jadi bot !
 ${users.map(v => 'wa.me/' + v.replace(/[^0-9]/g, '') + `?text=${usedPrefix}menu`).join('\n')}`.trim(), m)

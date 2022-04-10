@@ -1,1 +1,1 @@
-worker: node . --server --session 'https://sessiondata.unix123.repl.co' --db 'https://server.unix123.repl.co/' 
+web: node . 

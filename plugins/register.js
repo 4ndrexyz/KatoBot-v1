@@ -11,23 +11,22 @@ let handler = async function (m, { text, usedPrefix }) {
 
   } finally {
 
-  if (user.registered === true) throw `Kamu sudah terdaftar !\n\nJika ingin daftar ulang ketik\n*${usedPrefix}unreg (SN)*`
-  if (!Reg.test(text)) throw `Kamu belum *Terverifikasi !*\n\nSilahkan ketik *.daftar nama.umur* untuk registrasi\n\nContoh:\n*${usedPrefix}daftar Andre.18*`
+  if (user.registered === true) throw `*Kamu sudah Terverifikasi !*\n\nJika ingin daftar ulang ketik\n*${usedPrefix}unreg (SN)*`
+  if (!Reg.test(text)) throw `*Kamu belum Terverifikasi !*\n\nSilahkan ketik *${usedPrefix}daftar nama.umur* untuk registrasi\n\nContoh:\n*${usedPrefix}daftar Andre.18*`
   // if (user.registered === false) throw `Ketik *.daftar nama.umur* untuk registrasi\n\nContoh:\n*${usedPrefix}daftar andre.18*`
   // if (!Reg.test(text)) throw `Format yang kamu masukkan salah !\n\nContoh:\n*${usedPrefix}daftar Andre.18*`
   let [_, name, splitter, age] = text.match(Reg)
   if (!name) throw 'Nama tidak boleh kosong !'
   if (!age) throw 'Umur tidak boleh kosong !'
   age = parseInt(age)
-  if (age > 60) throw 'Kamu terlalu tua'
-  if (age < 5) throw 'Dasar bocil'
+  if (age > 60) throw 'Anda terlalu tua :v'
+  if (age < 5) throw 'Anda terlalu dini :v'
   user.name = name.trim()
   user.age = age
   user.regTime = + new Date
   user.registered = true
   let sn = createHash('md5').update(m.sender).digest('hex')
-  let str =
-    `
+  let str =`
 *Registrasi Berhasil* ✅ 
 
 » Nama: *${name}*
@@ -37,7 +36,7 @@ let handler = async function (m, { text, usedPrefix }) {
 Lupa Serial Number (SN) ?\nketik *${usedPrefix}ceksn*
 `.trim()
   let mentionedJid = [who]
-    conn.send2ButtonImg(m.chat, pp, str, '\n4ndrexyz', 'Menu','.menu', 'Cek SN','.ceksn', false, { contextInfo: { mentionedJid }})
+    conn.send2ButtonImg(m.chat, pp, str, author, 'Menu', `${usedPrefix}menu`, 'Cek SN', `${usedPrefix}ceksn`, false, { contextInfo: { mentionedJid }})
   }
 }
 

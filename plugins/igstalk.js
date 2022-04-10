@@ -33,9 +33,9 @@ ${biography}${external_url ? '\n*External URL:* ' + external_url : ''}
   if (pp) conn.sendFile(m.chat, pp, 'ppig.jpg', caption, m)
   else m.reply(caption)
 }
-handler.help = ['igstalk'].map(v => v + ' (username)')
-handler.tags = ['downloader']
+// handler.help = ['igstalk'].map(v => v + ' (username)')
+// handler.tags = ['downloader']
 
-handler.command = /^(igstalk)$/i
+// handler.command = /^(igstalk)$/i
 
-module.exports = handler
+// module.exports = handler

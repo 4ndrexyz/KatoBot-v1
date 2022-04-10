@@ -23,7 +23,6 @@ Positif:
 Negatif:
 *${negatif}*
 
-*4ndrexyz*
 `.trim())
     }
     else throw json

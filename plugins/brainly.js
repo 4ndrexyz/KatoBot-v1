@@ -1,51 +1,61 @@
-const brainly = require('brainly-scraper')
-const brain = new brainly()
+module.exports = handler = async (m, { conn, usedPrefix }) => {
 
-let handler = async function (m, { text }) {
-  if (!text) throw 'Soalnya?'
-  let res = await brain('id', text)
-  let answer = res.map(({ question, answers }, i) => `
-*PERTANYAAN KE ${i + 1}*
-${formatTags(question.content)}${answers.map((v, i) => `
+  let body = m.text;
+  const args = body.trim().split(/ +/).slice(1);
 
-*JAWABAN KE ${i + 1}*${v.verification ? ' (Verified)' : ''}${v.isBest ? ' (Terpilih)' : ''}
-${formatTags(v.content)}`).join``}`).join(`
-
-•------------•
-
-`)
-  m.reply(answer)
+  if (args.length >= 2) {
+  const BrainlySearch = require("../lib/brainly");
+  let tanya = body.slice(9);
+  let jum = Number(tanya.split(".")[1]) || 2;
+  if (jum > 10) return conn.reply(m.chat, "Max 10!", m);
+  if (Number(tanya[tanya.length - 1])) {
+    tanya;
+  }
+  conn.reply(
+    m.chat,
+    `*[ SOAL ]*\n\n➸ Soal: ${
+      tanya.split(".")[0]
+    }\n➸ Jumlah jawaban: ${Number(jum)}`,
+    m
+  );
+  await BrainlySearch(
+    tanya.split(".")[0],
+    Number(jum),
+    function (res) {
+      res.forEach((x) => {
+        if (x.jawaban.fotoJawaban.length == 0) {
+          conn.reply(
+            m.chat,
+            `*[ JAWABAN ]*\n\nSoal yang sama:\n${x.pertanyaan}\n\n➸ Jawaban:\n${x.jawaban.judulJawaban}\n`,
+            m
+          );
+          conn.sendText(m.chat, "Selesai..", m);
+        } else {
+          conn.reply(
+            m.chat,
+            `*[ JAWABAN ]*\n\nSoal yang sama:\n${x.pertanyaan}\nJawaban:\n${
+              x.jawaban.judulJawaban
+            }\n\n➸ Link foto jawaban: ${x.jawaban.fotoJawaban.join(
+              "\n"
+            )}`,
+            m
+          );
+        }
+      });
+    }
+  );
+} else {
+  conn.reply(
+    m.chat,
+    `*[ BRAINLY ]*\n\nCara Penggunaan:\n*${usedPrefix}brainly soal .jumlahsoal*\n\nContoh:\n*${usedPrefix}brainly Indonesia Merdeka .2*`,
+    author,
+    m
+  );
 }
-handler.help = ['brainly <soal>']
+}
+
+handler.help = ['brainly']
 handler.tags = ['internet']
 
 handler.command = /^brainly$/i
-
 module.exports = handler
-
-function formatTags(str) {
-  let tagRegex = /<(.+?)>((?:.|\n)*?)<\/\1>/gi
-  let replacer = (_, tag, inner) => {
-    let a = inner.replace(tagRegex, replacer)
-    let b = ''
-    switch (tag) {
-      case 'p':
-        a += '\n'
-        break
-      case 'i':
-        b = '_'
-      case 'strikethrough':
-        b = '~'
-      case 'strong':
-        b = '*'
-        a = a.split('\n').map(a => a ? b + a + b : a).join('\n')
-        break
-    }
-    return a
-  }
-  
-  return str
-    .replace(/<br *?\/?>/gi, '\n')
-    .replace(tagRegex, replacer)
-    .trim()
-}

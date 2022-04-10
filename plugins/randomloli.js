@@ -381,7 +381,7 @@ let handler = async (m,{ conn,usedPrefix }) => {
 	let url = loli[Math.floor(Math.random() * loli.length)]
 	await conn.sendMessage(m.chat, {
 		contentText: 'Pukul Pedo',
-		footerText: '4ndrexyz',
+		footerText: author,
 		buttons: [
 			{ buttonText: { displayText: 'Mau Lagi' }, buttonId: `${usedPrefix}loli`, type: 1 }
 		],
